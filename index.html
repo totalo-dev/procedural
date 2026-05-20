@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globo dourado</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    
+    <!-- Meta SEO Tags -->
+    <meta name="description" content="Recriação interativa em altíssima fidelidade do globo de partículas douradas em WebGL tridimensional com 10.000 instâncias usando Three.js e GSAP.">
+    <meta name="keywords" content="Three.js, WebGL, GSAP, Ousmane Dembele, Ballon d'Or, Particles, InstancedMesh, Interactive Web Design">
+    <meta name="author" content="Antigravity Agentic Engineer">
+    
+    <!-- Fontes Premium - Google Fonts (Outfit & Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Folha de Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- CDNs Importadas de Alta Velocidade (Three.js + GSAP) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+    <!-- Película de Grão Analógico Cinemático -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Fundo de Gradiente Suave -->
+    <div class="bg-gradient"></div>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        
+        <!-- Cabeçalho Principal Minimalista -->
+        <header class="app-header">
+            <h1 class="logo-title">OUSMANE DEMBÉLÉ</h1>
+            <span class="badge">NÉ POUR BRILLER</span>
+        </header>
+
+        <!-- Canvas do WebGL principal -->
+        <div class="canvas-wrapper">
+            <canvas id="ballon-load"></canvas>
+        </div>
+
+        <!-- Painel Lateral Esquerdo: Métricas da GPU (Glassmorphic) -->
+        <section class="glass-panel metrics-panel" id="metrics-panel">
+            <h2 class="panel-title">Métricas da GPU / WebGL</h2>
+            <div class="metric-item">
+                <span class="metric-label">Partículas Ativas</span>
+                <span class="metric-value">10.000</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Draw Calls (GPU)</span>
+                <span class="metric-value highlighting">1 <small>(InstancedMesh)</small></span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Motor de Gráficos</span>
+                <span class="metric-value">Three.js / WebGL</span>
+            </div>
+            <div class="metric-item">
+                <span class="metric-label">Taxa de Quadros</span>
+                <span class="metric-value pulsing">60 FPS</span>
+            </div>
+        </section>
+
+        <!-- Painel Lateral Direito: Controles do Sistema (Glassmorphic) -->
+        <section class="glass-panel controls-panel" id="controls-panel">
+            <h2 class="panel-title">Parâmetros do Globo</h2>
+            
+            <!-- Controle de Explosão -->
+            <div class="control-group">
+                <label for="explosion-slider">Simular Explosão (Scroll)</label>
+                <input type="range" id="explosion-slider" min="0" max="1" step="0.01" value="0">
+                <div class="slider-labels">
+                    <span>Montado</span>
+                    <span>Explodido</span>
+                </div>
+            </div>
+
+            <!-- Controle de Raio de Repulsão -->
+            <div class="control-group">
+                <label for="repulsion-slider">Raio de Repulsão do Mouse</label>
+                <input type="range" id="repulsion-slider" min="0.5" max="3.0" step="0.1" value="1.6">
+                <div class="slider-labels">
+                    <span>Sutil</span>
+                    <span>Intenso</span>
+                </div>
+            </div>
+
+            <!-- Botões Rápidos -->
+            <div class="btn-group">
+                <button id="btn-explode" class="btn secondary">Explodir Globo</button>
+                <button id="btn-reset" class="btn primary">Reiniciar Posição</button>
+            </div>
+
+            <div class="toggle-group">
+                <input type="checkbox" id="auto-rotate-check" checked>
+                <label for="auto-rotate-check">Rotação Automática Passiva</label>
+            </div>
+        </section>
+
+        <!-- Legenda de Instruções do Rodapé -->
+        <footer class="app-footer">
+            <p class="instruction-text">
+                🌌 Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física.  
+                Use o **Scroll (rolagem do mouse)** ou o painel de parâmetros para explodir o Ballon d'Or dourado.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- Script Principal JavaScript -->
+    <script src="app.js" defer></script>
+</body>
+</html>

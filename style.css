@@ -1,0 +1,442 @@
+/* ==========================================================================
+   OUSMANE DEMBÉLÉ - GLOBAL CSS STYLES (PREMIUM STYLES)
+   ========================================================================== */
+
+/* --- Variáveis do Design System --- */
+:root {
+    --color-bg-dark: #070707;
+    --color-bg-light: #18181b;
+    --color-gold: #FFF300;
+    --color-gold-hover: #e6da00;
+    --color-gold-glow: rgba(255, 243, 0, 0.25);
+    
+    --color-text-primary: #f4f4f5;
+    --color-text-secondary: #a1a1aa;
+    --color-text-muted: #52525b;
+    
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Outfit', sans-serif;
+    
+    --border-glass: 1px solid rgba(255, 255, 255, 0.07);
+    --bg-glass: rgba(10, 10, 10, 0.55);
+    --shadow-glass: 0 12px 40px 0 rgba(0, 0, 0, 0.65);
+    --blur-glass: blur(25px) saturate(180%);
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-micro: all 0.2s ease;
+}
+
+/* --- Resets Gerais & Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-dark);
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+    overflow: hidden;
+    user-select: none;
+}
+
+/* --- Gradiente de Fundo Profundo --- */
+.bg-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 50%, var(--color-bg-light) 0%, var(--color-bg-dark) 85%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- Película de Grão Analógico (CSS Procedural) --- */
+.grain-overlay {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    /* Gerando ruído SVG dinâmico de altíssima performance */
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.045;
+    z-index: 9999;
+    pointer-events: none;
+    animation: grainShift 8s steps(10) infinite;
+}
+
+@keyframes grainShift {
+    0%, 100% { transform:translate(0, 0); }
+    10% { transform:translate(-5%, -10%); }
+    20% { transform:translate(-15%, 5%); }
+    30% { transform:translate(7%, -25%); }
+    40% { transform:translate(-5%, 25%); }
+    50% { transform:translate(-15%, 10%); }
+    60% { transform:translate(15%, -5%); }
+    70% { transform:translate(0%, 15%); }
+    85% { transform:translate(10%, -10%); }
+    90% { transform:translate(-10%, 10%); }
+}
+
+/* --- Container Principal --- */
+.app-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+}
+
+/* --- Canvas Wrapper --- */
+.canvas-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+#ballon-load {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+}
+
+#ballon-load:active {
+    cursor: grabbing;
+}
+
+/* --- Cabeçalho (Header) --- */
+.app-header {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    pointer-events: auto;
+}
+
+.logo-title {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    background: linear-gradient(135deg, #ffffff 40%, var(--color-text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.badge {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--color-gold);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-gold);
+}
+
+/* --- Painéis Laterais Glassmorphism --- */
+.glass-panel {
+    position: absolute;
+    z-index: 20;
+    background-color: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-glass);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: var(--transition-smooth);
+    pointer-events: auto;
+}
+
+.panel-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.75rem;
+}
+
+/* Painel de Métricas (Esquerda) */
+.metrics-panel {
+    left: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+}
+
+.metric-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.metric-value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #ffffff;
+}
+
+.metric-value.highlighting {
+    color: var(--color-gold);
+    text-shadow: 0 0 10px var(--color-gold-glow);
+}
+
+.metric-value.pulsing {
+    animation: metricPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes metricPulse {
+    0% { color: #ffffff; text-shadow: none; }
+    100% { color: var(--color-gold); text-shadow: 0 0 12px var(--color-gold-glow); }
+}
+
+/* Painel de Controles (Direita) */
+.controls-panel {
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 340px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.control-group label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Custom Sliders */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    outline: none;
+    transition: var(--transition-micro);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-gold);
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 10px rgba(255, 243, 0, 0.4);
+    cursor: pointer;
+    transition: var(--transition-micro);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+    background: #ffffff;
+    border-color: var(--color-gold);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Toggle Switch Customizado */
+.toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.toggle-group input[type="checkbox"] {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    appearance: none;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition-micro);
+}
+
+.toggle-group input[type="checkbox"]:checked {
+    background: var(--color-gold);
+}
+
+.toggle-group input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    background: #ffffff;
+    transition: var(--transition-micro);
+}
+
+.toggle-group input[type="checkbox"]:checked::before {
+    left: 21px;
+}
+
+.toggle-group label {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Botões */
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.btn {
+    flex: 1;
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn.primary {
+    background-color: var(--color-gold);
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(255, 243, 0, 0.2);
+}
+
+.btn.primary:hover {
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    border: var(--border-glass);
+}
+
+.btn.secondary:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* --- Rodapé (Footer) --- */
+.app-footer {
+    position: relative;
+    z-index: 20;
+    max-width: 500px;
+    pointer-events: none;
+    align-self: center;
+}
+
+.instruction-text {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Efeitos Responsivos --- */
+@media screen and (max-width: 991px) {
+    .app-container {
+        padding: 1.5rem;
+        overflow-y: auto;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+    
+    .logo-title {
+        font-size: 1.8rem;
+    }
+
+    .glass-panel {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        transform: none;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .metrics-panel {
+        order: 2;
+    }
+    
+    .controls-panel {
+        order: 3;
+    }
+    
+    .app-footer {
+        order: 4;
+        padding-top: 1rem;
+    }
+}
