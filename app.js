@@ -176,7 +176,15 @@ class ParticleBallon {
         }
         
         // --- Distribuição Fibonacci Sphere para 10.000 partículas ---
-        for (let i = 0; i < count; i++) {
+        const indices = Array.from({length: count}, (_, k) => k);
+        // Embaralha os índices para remover o seam (linha de ordenação alpha)
+        for (let i = count - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [indices[i], indices[j]] = [indices[j], indices[i]];
+        }
+
+        for (let loopIdx = 0; loopIdx < count; loopIdx++) {
+            let i = indices[loopIdx];
             // Algoritmo matemático Fibonacci para distribuir uniformemente
             const phi = Math.acos(1 - 2 * i / count);
             const theta = Math.PI * (1 + Math.sqrt(5)) * i;
@@ -520,8 +528,8 @@ class ParticleBallon {
             
             // Assegura que as partículas fiquem orientadas para a câmera (billboarding falso para volume)
             // e adiciona rotações caóticas durante a explosão
-            const baseRotX = 0;
-            const baseRotY = 0;
+            const baseRotX = -this.rotationX;
+            const baseRotY = -this.rotationY;
             const baseRotZ = Math.sin(elapsedTime * 2 + data.animationOffset) * 0.2;
             
             const explodeRot = this.explosionProgress * CONFIG.EXPLOSION_ROTATION_SPEED;
