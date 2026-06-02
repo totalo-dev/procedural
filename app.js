@@ -558,7 +558,67 @@ class ParticleBallon {
     }
 }
 
+// --- Dicionário de Traduções ---
+const translations = {
+    pt: {
+        badge: "NÉ POUR BRILLER",
+        metrics_title: "Métricas da GPU / WebGL",
+        active_particles: "Partículas Ativas",
+        graphics_engine: "Motor de Gráficos",
+        frame_rate: "Taxa de Quadros",
+        params_title: "Parâmetros do Globo",
+        sim_explosion: "Simular Explosão (Scroll)",
+        assembled: "Montado",
+        exploded: "Explodido",
+        mouse_repulsion: "Raio de Repulsão do Mouse",
+        subtle: "Sutil",
+        intense: "Intenso",
+        btn_explode: "Explodir Globo",
+        btn_reset: "Reiniciar Posição",
+        auto_rotate: "Rotação Automática Passiva",
+        instruction: "🌌 Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o **Scroll (rolagem do mouse)** ou o painel de parâmetros para explodir o Ballon d'Or dourado."
+    },
+    en: {
+        badge: "BORN TO SHINE",
+        metrics_title: "GPU / WebGL Metrics",
+        active_particles: "Active Particles",
+        graphics_engine: "Graphics Engine",
+        frame_rate: "Frame Rate",
+        params_title: "Globe Parameters",
+        sim_explosion: "Simulate Explosion (Scroll)",
+        assembled: "Assembled",
+        exploded: "Exploded",
+        mouse_repulsion: "Mouse Repulsion Radius",
+        subtle: "Subtle",
+        intense: "Intense",
+        btn_explode: "Explode Globe",
+        btn_reset: "Reset Position",
+        auto_rotate: "Passive Auto-Rotation",
+        instruction: "🌌 Hover over the particle globe to physically deform the 3D matter. Use **Scroll** or the parameters panel to explode the golden Ballon d'Or."
+    }
+};
+
+let currentLang = 'pt';
+
 // --- Inicialização Automática após carregamento do DOM ---
 document.addEventListener("DOMContentLoaded", () => {
     const app = new ParticleBallon("ballon-load");
+    
+    // Lógica do Language Switcher
+    const langBtn = document.getElementById("lang-btn");
+    if (langBtn) {
+        langBtn.addEventListener("click", () => {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            langBtn.innerText = currentLang === 'pt' ? 'EN' : 'PT';
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+            
+            document.documentElement.lang = currentLang === 'pt' ? 'pt-BR' : 'en';
+        });
+    }
 });

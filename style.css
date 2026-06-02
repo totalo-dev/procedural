@@ -120,6 +120,39 @@ html, body {
     cursor: grabbing;
 }
 
+/* --- Language Switcher --- */
+.lang-switcher {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    z-index: 50;
+    background-color: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.lang-switcher:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-gold);
+    transform: translateY(-2px);
+    border-color: var(--color-gold);
+    box-shadow: 0 6px 20px rgba(255, 243, 0, 0.2);
+}
+
 /* --- Cabeçalho (Header) --- */
 .app-header {
     position: relative;
@@ -438,5 +471,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
     .app-footer {
         order: 4;
         padding-top: 1rem;
+    }
+    
+    .lang-switcher {
+        top: 1.5rem;
+        right: 1.5rem;
     }
 }

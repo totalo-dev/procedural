@@ -34,10 +34,13 @@
     <!-- Main Container -->
     <main class="app-container">
         
+        <!-- Botão Language Switcher -->
+        <button class="lang-switcher" id="lang-btn" aria-label="Mudar para Inglês">EN</button>
+        
         <!-- Cabeçalho Principal Minimalista -->
         <header class="app-header">
             <h1 class="logo-title">OUSMANE DEMBÉLÉ</h1>
-            <span class="badge">NÉ POUR BRILLER</span>
+            <span class="badge" data-i18n="badge">NÉ POUR BRILLER</span>
         </header>
 
         <!-- Canvas do WebGL principal -->
@@ -47,9 +50,9 @@
 
         <!-- Painel Lateral Esquerdo: Métricas da GPU (Glassmorphic) -->
         <section class="glass-panel metrics-panel" id="metrics-panel">
-            <h2 class="panel-title">Métricas da GPU / WebGL</h2>
+            <h2 class="panel-title" data-i18n="metrics_title">Métricas da GPU / WebGL</h2>
             <div class="metric-item">
-                <span class="metric-label">Partículas Ativas</span>
+                <span class="metric-label" data-i18n="active_particles">Partículas Ativas</span>
                 <span class="metric-value">10.000</span>
             </div>
             <div class="metric-item">
@@ -57,54 +60,54 @@
                 <span class="metric-value highlighting">1 <small>(InstancedMesh)</small></span>
             </div>
             <div class="metric-item">
-                <span class="metric-label">Motor de Gráficos</span>
+                <span class="metric-label" data-i18n="graphics_engine">Motor de Gráficos</span>
                 <span class="metric-value">Three.js / WebGL</span>
             </div>
             <div class="metric-item">
-                <span class="metric-label">Taxa de Quadros</span>
+                <span class="metric-label" data-i18n="frame_rate">Taxa de Quadros</span>
                 <span class="metric-value pulsing">60 FPS</span>
             </div>
         </section>
 
         <!-- Painel Lateral Direito: Controles do Sistema (Glassmorphic) -->
         <section class="glass-panel controls-panel" id="controls-panel">
-            <h2 class="panel-title">Parâmetros do Globo</h2>
+            <h2 class="panel-title" data-i18n="params_title">Parâmetros do Globo</h2>
             
             <!-- Controle de Explosão -->
             <div class="control-group">
-                <label for="explosion-slider">Simular Explosão (Scroll)</label>
+                <label for="explosion-slider" data-i18n="sim_explosion">Simular Explosão (Scroll)</label>
                 <input type="range" id="explosion-slider" min="0" max="1" step="0.01" value="0">
                 <div class="slider-labels">
-                    <span>Montado</span>
-                    <span>Explodido</span>
+                    <span data-i18n="assembled">Montado</span>
+                    <span data-i18n="exploded">Explodido</span>
                 </div>
             </div>
 
             <!-- Controle de Raio de Repulsão -->
             <div class="control-group">
-                <label for="repulsion-slider">Raio de Repulsão do Mouse</label>
+                <label for="repulsion-slider" data-i18n="mouse_repulsion">Raio de Repulsão do Mouse</label>
                 <input type="range" id="repulsion-slider" min="0.5" max="3.0" step="0.1" value="1.6">
                 <div class="slider-labels">
-                    <span>Sutil</span>
-                    <span>Intenso</span>
+                    <span data-i18n="subtle">Sutil</span>
+                    <span data-i18n="intense">Intenso</span>
                 </div>
             </div>
 
             <!-- Botões Rápidos -->
             <div class="btn-group">
-                <button id="btn-explode" class="btn secondary">Explodir Globo</button>
-                <button id="btn-reset" class="btn primary">Reiniciar Posição</button>
+                <button id="btn-explode" class="btn secondary" data-i18n="btn_explode">Explodir Globo</button>
+                <button id="btn-reset" class="btn primary" data-i18n="btn_reset">Reiniciar Posição</button>
             </div>
 
             <div class="toggle-group">
                 <input type="checkbox" id="auto-rotate-check" checked>
-                <label for="auto-rotate-check">Rotação Automática Passiva</label>
+                <label for="auto-rotate-check" data-i18n="auto_rotate">Rotação Automática Passiva</label>
             </div>
         </section>
 
         <!-- Legenda de Instruções do Rodapé -->
         <footer class="app-footer">
-            <p class="instruction-text">
+            <p class="instruction-text" data-i18n="instruction">
                 🌌 Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física.  
                 Use o **Scroll (rolagem do mouse)** ou o painel de parâmetros para explodir o Ballon d'Or dourado.
             </p>
