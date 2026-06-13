@@ -1,69 +1,25 @@
-# AI Particle Globe Experience
+# Ousmane Dembélé - Interactive 3D Particle Globe
 
-Interactive platform inspired by the particle globe experience from Ousmane Dembélé’s website, recreated with AI-assisted development for entertainment and visual experimentation purposes.
+This repository contains a high-fidelity interactive 3D particle globe representing a golden ball (Ballon d'Or), created using WebGL, Three.js, and GSAP. 
 
----
+## Features
+- **InstancedMesh Particles**: Handles 10,000 particles efficiently with a single draw call.
+- **Interactive Repulsion**: Particles react to the user's mouse cursor, creating a highly engaging, physical deformation effect.
+- **Scroll-to-Explode Animation**: The user can scroll the page or use the control panel to organically explode the particles outward.
+- **Premium Glassmorphic UI**: High-end overlay panels displaying GPU/WebGL metrics and exposing physical parameters (repulsion radius, explosion state).
+- **Smooth Animations**: Powered by GSAP and custom Math.lerp logic for organic interpolations, smooth rotations, and particle transitions.
 
-## ✨ Overview
+## Technologies Used
+- HTML5 & CSS3
+- JavaScript (ES6+)
+- [Three.js](https://threejs.org/) (WebGL rendering)
+- [GSAP](https://greensock.com/gsap/) (Animations)
 
-This project delivers an immersive 3D particle simulation using modern web graphics technologies. The experience combines real-time rendering, GPU-accelerated particles, cinematic motion, and interactive controls to create a fluid and dynamic visual environment.
+## Getting Started
+Simply open the `index.html` file in any modern web browser to view the interactive globe. No build tools are required.
 
----
-
-## 🚀 Features
-
-- Real-time 3D particle globe
-- WebGL-powered rendering
-- GPU-accelerated particle system
-- Mouse interaction and repulsion effects
-- Scroll-triggered explosion simulation
-- Smooth animations and transitions
-- Interactive control panel
-- Responsive fullscreen experience
-- Optimized performance rendering
-
----
-
-## 🛠 Technologies
-
-- Three.js
-- WebGL
-- JavaScript / TypeScript
-- GLSL Shaders
-- HTML5 / CSS3
-- GPU Instanced Rendering
-- AI-assisted development workflow
-
----
-
-## ⚡ Performance Goals
-
-- Stable 60 FPS rendering
-- Optimized draw calls
-- Efficient particle management
-- Smooth interaction handling
-- Hardware-accelerated graphics pipeline
-
----
-
-## 🎮 Controls
-
-| Action | Effect |
-|---|---|
-| Mouse Movement | Repulse and deform particles |
-| Scroll | Trigger explosion effect |
-| Restart Button | Reset globe position |
-| Auto Rotation | Enable passive rotation |
-
----
-
-## 📦 Installation
-
-```bash
-git clone <repository-url>
-
-cd project-name
-
-npm install
-
-npm run dev
+## Interactions
+- **Hover/Move Cursor**: Push the particles away from the cursor.
+- **Drag**: Rotate the globe manually.
+- **Scroll**: Trigger the explosion effect.
+- **Controls Panel**: Toggle auto-rotation, explosion states, and tweak the repulsion radius.
