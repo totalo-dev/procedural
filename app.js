@@ -594,7 +594,7 @@ const translations = {
         btn_explode: "Explode Globe",
         btn_reset: "Reset Position",
         auto_rotate: "Passive Auto-Rotation",
-        instruction: "🌌 Hover over the particle globe to physically deform the 3D matter. Use **Scroll** or the parameters panel to explode the golden Ballon d'Or."
+        instruction: "🌌 Hover over the particle globe to physically deform the 3D matter. Use Scroll or the parameters panel to explode the golden Ballon d'Or."
     }
 };
 
