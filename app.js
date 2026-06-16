@@ -576,7 +576,7 @@ const translations = {
         btn_explode: "Explodir Globo",
         btn_reset: "Reiniciar Posição",
         auto_rotate: "Rotação Automática Passiva",
-        instruction: "🌌 Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o **Scroll (rolagem do mouse)** ou o painel de parâmetros para explodir o Ballon d'Or dourado."
+        instruction: "🌌 Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o Scroll (rolagem do mouse) ou o painel de parâmetros para explodir o Ballon d'Or dourado."
     },
     en: {
         badge: "BORN TO SHINE",
