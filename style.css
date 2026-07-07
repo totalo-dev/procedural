@@ -478,3 +478,57 @@ input[type="range"]::-webkit-slider-thumb:hover {
         right: 1.5rem;
     }
 }
+
+/* ==========================================================================
+   FOCUS MODE
+   ========================================================================== */
+
+/* Botão de Modo Foco */
+.focus-btn {
+    position: absolute;
+    top: 2.5rem;
+    right: 6.5rem; /* Posicionado à esquerda do lang-switcher */
+    z-index: 50;
+    background-color: var(--bg-glass);
+    border: var(--border-glass);
+    border-radius: 20px;
+    padding: 0 1.5rem;
+    height: 45px;
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    box-shadow: var(--shadow-glass);
+    transition: var(--transition-smooth);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-gold);
+    transform: translateY(-2px);
+    border-color: var(--color-gold);
+    box-shadow: 0 6px 20px rgba(255, 243, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .focus-btn {
+        top: 1.5rem;
+        right: 4.5rem;
+    }
+}
+
+/* Ocultar elementos quando o focus-mode estiver ativo */
+body.focus-mode .app-header,
+body.focus-mode .lang-switcher,
+body.focus-mode .metrics-panel,
+body.focus-mode .controls-panel,
+body.focus-mode .app-footer,
+body.focus-mode .grain-overlay {
+    display: none !important;
+}
