@@ -24,7 +24,7 @@ Simply open the `index.html` file in any modern web browser to view the interact
 - **Scroll**: Trigger the explosion effect.
 - **Controls Panel**: Toggle auto-rotation, explosion states, and tweak the repulsion radius.
 
-## Status do Projeto
-- Estado: em progresso
-- Fases: não definidas
-- Última verificação: 18/06/2026
+## Project Status
+- Status: in progress
+- Phases: not defined
+- Last checked: 18/06/2026
