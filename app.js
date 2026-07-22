@@ -576,7 +576,9 @@ const translations = {
         btn_explode: "Explodir Globo",
         btn_reset: "Reiniciar Posição",
         auto_rotate: "Rotação Automática Passiva",
-        instruction: "Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o Scroll (rolagem do mouse) ou o painel de parâmetros para explodir o Ballon d'Or dourado."
+        instruction: "Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o Scroll (rolagem do mouse) ou o painel de parâmetros para explodir o Ballon d'Or dourado.",
+        focus_mode: "Modo Foco",
+        restore_interface: "Restaurar Interface"
     },
     en: {
         badge: "BORN TO SHINE",
@@ -594,11 +596,15 @@ const translations = {
         btn_explode: "Explode Globe",
         btn_reset: "Reset Position",
         auto_rotate: "Passive Auto-Rotation",
-        instruction: "Hover over the particle globe to physically deform the 3D matter. Use Scroll or the parameters panel to explode the golden Ballon d'Or."
+        instruction: "Hover over the particle globe to physically deform the 3D matter. Use Scroll or the parameters panel to explode the golden Ballon d'Or.",
+        focus_mode: "Focus Mode",
+        restore_interface: "Restore Interface"
     }
 };
 
+window.translations = translations;
 let currentLang = 'pt';
+window.currentLang = currentLang;
 
 // --- Inicialização Automática após carregamento do DOM ---
 document.addEventListener("DOMContentLoaded", () => {
@@ -609,12 +615,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (langBtn) {
         langBtn.addEventListener("click", () => {
             currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            window.currentLang = currentLang;
             langBtn.innerText = currentLang === 'pt' ? 'EN' : 'PT';
             
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[currentLang][key]) {
                     el.innerText = translations[currentLang][key];
+                    if (el.id === 'focus-mode-btn') {
+                        el.setAttribute("aria-label", translations[currentLang][key]);
+                    }
                 }
             });
             
