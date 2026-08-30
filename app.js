@@ -561,6 +561,7 @@ class ParticleBallon {
 // --- Dicionário de Traduções ---
 const translations = {
     pt: {
+        title: "Globo Dourado",
         badge: "NÉ POUR BRILLER",
         metrics_title: "Métricas da GPU / WebGL",
         active_particles: "Partículas Ativas",
@@ -581,6 +582,7 @@ const translations = {
         restore_interface: "Restaurar Interface"
     },
     en: {
+        title: "Golden Globe",
         badge: "BORN TO SHINE",
         metrics_title: "GPU / WebGL Metrics",
         active_particles: "Active Particles",
