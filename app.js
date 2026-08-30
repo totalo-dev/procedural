@@ -579,7 +579,9 @@ const translations = {
         auto_rotate: "Rotação Automática Passiva",
         instruction: "Passe o cursor do mouse sobre o globo de partículas para deformar a matéria tridimensional física. Use o Scroll (rolagem do mouse) ou o painel de parâmetros para explodir o Ballon d'Or dourado.",
         focus_mode: "Modo Foco",
-        restore_interface: "Restaurar Interface"
+        restore_interface: "Restaurar Interface",
+        fullscreen: "Tela Cheia",
+        exit_fullscreen: "Sair Tela Cheia"
     },
     en: {
         title: "Golden Globe",
@@ -600,7 +602,9 @@ const translations = {
         auto_rotate: "Passive Auto-Rotation",
         instruction: "Hover over the particle globe to physically deform the 3D matter. Use Scroll or the parameters panel to explode the golden Ballon d'Or.",
         focus_mode: "Focus Mode",
-        restore_interface: "Restore Interface"
+        restore_interface: "Restore Interface",
+        fullscreen: "Fullscreen",
+        exit_fullscreen: "Exit Fullscreen"
     }
 };
 

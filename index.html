@@ -34,10 +34,12 @@
     <!-- Main Container -->
     <main class="app-container">
         
-        <!-- Botão Language Switcher -->
-        <button class="lang-switcher" id="lang-btn" aria-label="Mudar para Inglês">EN</button>
-        <button class="focus-btn" id="focus-mode-btn" data-i18n="focus_mode" aria-label="Ativar Modo Foco">Modo Foco</button>
-
+        <!-- Controles Superiores Direitos -->
+        <div class="top-right-controls">
+            <button class="fullscreen-btn" id="fullscreen-btn" data-i18n="fullscreen" aria-label="Tela Cheia">Tela Cheia</button>
+            <button class="focus-btn" id="focus-mode-btn" data-i18n="focus_mode" aria-label="Ativar Modo Foco">Modo Foco</button>
+            <button class="lang-switcher" id="lang-btn" aria-label="Mudar para Inglês">EN</button>
+        </div>
         
         <!-- Cabeçalho Principal Minimalista -->
         <header class="app-header">
@@ -121,5 +123,7 @@
     <script src="app.js" defer></script>
     <!-- Focus Mode Script -->
     <script src="focusMode.js" defer></script>
+    <!-- Fullscreen Mode Script -->
+    <script src="fullscreen.js" defer></script>
 </body>
 </html>
