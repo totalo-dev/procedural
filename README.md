@@ -15,16 +15,13 @@ This repository contains a high-fidelity interactive 3D particle globe represent
 - [Three.js](https://threejs.org/) (WebGL rendering)
 - [GSAP](https://greensock.com/gsap/) (Animations)
 
-## Getting Started
-Simply open the `index.html` file in any modern web browser to view the interactive globe. No build tools are required.
-
 ## Interactions
 - **Hover/Move Cursor**: Push the particles away from the cursor.
 - **Drag**: Rotate the globe manually.
 - **Scroll**: Trigger the explosion effect.
 - **Controls Panel**: Toggle auto-rotation, explosion states, and tweak the repulsion radius.
 
-## Project Status
-- Status: in progress
-- Phases: not defined
-- Last checked: 18/06/2026
+<hr>
+
+<h1 style="border-bottom: none;"> THIS REPOSITORY IS 100% VIBE CODED </h1>
+<h3> With finality of for fun and learning <s>(and there were tokens left over.)</s></h3>
